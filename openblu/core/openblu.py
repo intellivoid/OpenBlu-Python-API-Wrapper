@@ -77,7 +77,7 @@ class OpenBluAPI:
     def list_servers(self, filter_by: Union[None, tuple] = None, order_by: Union[None, str] = None, sort_by: Union[None, str] = None, verbose: bool = False):
         """Fetches OpenVPN servers from the OpenBlu API
 
-	   :param filter_by: If not ``None``, filter the results by the given parameter. It must be a tuple containing a country name and either one of these strings : "country", "country_short". If "country_short" is the second element of the tuple, the country name must be the short form of its name (e.g. 'de' for germany or 'jp' for Japan) otherwise, the full extended form is required. Defaults to ``None``
+	   :param filter_by: If not ``None``, filter the results by the given parameter. It must be a tuple containing a country name and either one of these strings (In this order): "country", "country_short". If "country_short" is the second element of the tuple, the country name must be the short form of its name (e.g. 'de' for germany or 'jp' for Japan) otherwise, the full extended form is required. Defaults to ``None``
            :type filter_by: tuple, None, optional
 	   :param order_by: If not ``None``, order the results by this order. It can either be ``'ascending'`` or ``'descending'``, defaults to ``None``. Possible choices are "score", "ping", "sessions", "total_sessions", "last_updated" and "created"
 	   :type order_by: str, None, optional
@@ -97,8 +97,8 @@ class OpenBluAPI:
         post_data = {}
         post_data["access_key"] = self.access_key
         if filter_by:
-            post_data["by"] = filter_by[0]
-            post_data["filter"] = filter_by[1]
+            post_data["by"] = filter_by[1]
+            post_data["filter"] = filter_by[0]
         if order_by:
             post_data["order_by"] = order_by
         if sort_by:
