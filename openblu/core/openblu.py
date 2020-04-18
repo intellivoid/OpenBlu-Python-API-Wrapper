@@ -3,8 +3,8 @@ from typing import Union
 import json
 import os
 import logging
-from ..objects import Server, ServerListing
-from ..errors import OpenBluError, UnauthorizedAccess, ServerNotFound
+from ..objects import Server, ServerListing, OpenBluError, UnauthorizedAccess, ServerNotFound
+from collections import defaultdict
 
 
 class OpenBluAPI:
