@@ -97,8 +97,8 @@ class OpenBluAPI:
         post_data = {}
         post_data["access_key"] = self.access_key
         if filter_by:
-            post_data["by"] = filter_by[1]
-            post_data["filter"] = filter_by[0]
+            post_data["by"] = filter_by[0]
+            post_data["filter"] = filter_by[1]
         if order_by:
             post_data["order_by"] = order_by
         if sort_by:
