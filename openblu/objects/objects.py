@@ -35,10 +35,16 @@ class ServerListing(Server):
     def __init__(self, data):
         """Object constructor"""
 
-        super().__init__(data)
+        self._data = data
+        servers = []
+        for server in self._data["servers"]:
+            servers.append(Server(server))
+        self._data["servers"] = servers
 
     def __iter__(self):
         """Implements iter(self)"""
 
         for server in self._data["servers"]:
-            yield Server(server)
+            yield server
+
+
