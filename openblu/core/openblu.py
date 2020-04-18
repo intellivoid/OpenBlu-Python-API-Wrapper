@@ -77,8 +77,6 @@ class OpenBluAPI:
     def list_servers(self, filter_by: Union[None, tuple] = None, order_by: Union[None, str] = None, sort_by: Union[None, str] = None, verbose: bool = False):
         """Fetches OpenVPN servers from the OpenBlu API
 
-	   :param endpoint: The API endpoint to contact and fetch the servers list from, defaults to 'https://api.intellivoid.info/openblu/v1'
-           :type endpoint: str, None, optional
 	   :param filter_by: If not ``None``, filter the results by the given parameter. It must be a tuple containing a country name and either one of these strings : "country", "country_short". If "country_short" is the second element of the tuple, the country name must be the short form of its name (e.g. 'de' for germany or 'jp' for Japan) otherwise, the full extended form is required. Defaults to ``None``
            :type filter_by: tuple, None, optional
 	   :param order_by: If not ``None``, order the results by this order. It can either be ``'ascending'`` or ``'descending'``, defaults to ``None``. Possible choices are "score", "ping", "sessions", "total_sessions", "last_updated" and "created"
