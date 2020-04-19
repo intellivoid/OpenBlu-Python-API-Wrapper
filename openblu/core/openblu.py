@@ -69,7 +69,7 @@ class OpenBluAPI:
         response = requests.post(link, data=post_data)
         data = json.loads(response.text)
         if data["response_code"] == 200:
-            return Server(data["server"])
+            return Server(data["server"]["openvpn"])
         else:
             self._raise_exception(data["response_code"], data["error"]["message"])
 
@@ -85,8 +85,8 @@ class OpenBluAPI:
 	   :type sort_by: str, None, optional
 	   :param verbose: If ``True``, make the output verbose, default to ``False``
 	   :type verbose: bool, optional
-	   :returns servers_list: A class class:ServerListing object
-	   :rtype servers_list: class: ServerListing
+	   :returns servers_list: A list of class:ServerListing objects
+	   :rtype servers_list: list
            :raises OpenBluError: An proper subclass of OpenBluError is raised if something goes wrong. If the error cannot be determined, a generic OpenBluError is raised
         """
 
@@ -106,7 +106,7 @@ class OpenBluAPI:
         response = requests.post(link, data=post_data)
         data = json.loads(response.text)
         if data["response_code"] == 200:
-            return ServerListing(data)
+            return [ServerListing(server) for server in data["servers"]]
         else:
             self._raise_exception(data["response_code"], data["error"]["message"])
 

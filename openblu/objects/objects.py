@@ -1,7 +1,7 @@
 """This file contains the abstraction layers over the JSON response got from OpenBlu API"""
 
 
-class Server(object):
+class ServerListing(object):
     """An abstraction layer over a dictionary object representing a server on the OpenBlu network.
        Server attributes can be accessed trough dot notation (e.g. ``foo.bar``) and trough slicing (``foo["bar"]``)
 
@@ -22,29 +22,24 @@ class Server(object):
 
         return self.__getitem__(attr)
 
+    def __repr__(self):
+        """Implements repr(self)"""
+
+        show = "\n"
+        for index, (key, value) in enumerate(self._data.items()):
+            show += f"{key}={value}"
+            if index < len(self._data) - 1:
+                show += ", \n"
+        return f"ServerListing({show})"
 
 
-class ServerListing(Server):
-    """An abstraction layer over a dictionary object representing a server on the OpenBlu network.
-       Server attributes can be accessed trough dot notation (e.g. ``foo.bar``) and trough slicing (``foo["bar"]``)
-       This object is iterable and yields one server at a time when used in a for loop
-
-       :param data: The dictionary object converted from the JSON response from OpenBlu API
-    """
-
+class Server(ServerListing):
     def __init__(self, data):
         """Object constructor"""
 
-        self._data = data
-        servers = []
-        for server in self._data["servers"]:
-            servers.append(Server(server))
-        self._data["servers"] = servers
+        super().__init__(data)
 
-    def __iter__(self):
-        """Implements iter(self)"""
+    def __repr__(self):
+        """Implement repr(self)"""
 
-        for server in self._data["servers"]:
-            yield server
-
-
+        return f"<Server object at {hex(id(self))}>"
