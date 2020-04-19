@@ -9,7 +9,7 @@ setup(
     name="OpenBlu-Python-Wrapper",
     version="1.0",
     author="Intellivoid Technologies",
-    author_email="nocturn9x@intellivoid.net"
+    author_email="nocturn9x@intellivoid.net",
     description="Official Python 3 wrapper around the OpenBlu API",
     long_description=long_description,
     long_description_content_type="text/markdown",
