@@ -10,7 +10,7 @@ This wrapper can be used to fetch servers from the OpenBlu API and retrieve thei
 To make things easy, the library abstracts the JSON responses from the API inside two objects:
 
 - `Server` -> Contains the OpenVPN configuration as described in [OpenBlu's Documentation](https://docs.intellivoid.info/openblu/v1/get_server)
-- 'ServerListing` -> Contains extra info from a server such as ping, IP address and location
+- `ServerListing` -> Contains extra info from a server such as ping, IP address and location
 
 The `ServerListing` object can be printed to get an overview of the server's metadata.
 
