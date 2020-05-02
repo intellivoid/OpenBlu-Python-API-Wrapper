@@ -24,7 +24,7 @@ To install this wrapper, simply clone this repo with `git clone`, then run `pyth
 
 ### Fetch multiple servers
 
-To fetch multiple servers, without their OpenVPN configuration, you can use the `list_servers()` of the `openblu.OpenBluAPI` class like shown below
+To fetch multiple servers, without their OpenVPN configuration, you can use the `list_servers()` method of the `openblu.OpenBluAPI` class like shown below
 
 ```python
 
@@ -94,11 +94,11 @@ The wrapper implements 3 exceptions:
 - `ServerNotFound` -> When an invalid server ID is provided to the API
 - `Unauthorized Access` -> When an invalid access key is provided to the API
 
-Other errors, such as JSON decoding errors or HTTP failures, are not catched and must be handled by the wrapper itself.
+Other errors, such as JSON decoding errors or HTTP failures, are not catched and must be handled by the end user itself.
 
 ### Last, but not least
 
-`Server` and `ServerListing` objects support dict-like accessing and dot notation accessing for their attributes.
+`Server` and `ServerListing` objects support dict-like accessing as well as dot notation accessing for their attributes.
 
 Doing `server["id"]` or `server.id` yields the same result.
 
