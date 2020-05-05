@@ -24,7 +24,7 @@ servers = api.list_servers(filter_by=("JP", "country_short"))
 
 # This parameter is used to sort server entries by one of their attributes.
 # The resulting list will be ordered (sorted) according to that parameter
-# Options for this parameter are: 'ping', 'last_updated', 'total_sessions', 'created', 'sessions' and 'score
+# Options for this parameter are: 'ping', 'last_updated', 'total_sessions', 'created', 'sessions' and 'score'
 
 
 from openblu import OpenBluAPI
