@@ -7,10 +7,12 @@ Official Python wrapper around OpenBlu API
 
 This wrapper can be used to fetch servers from the OpenBlu API and retrieve their OpenVPN configuration.
 
-To make things easy, the library abstracts the JSON responses from the API inside two objects:
+To make things easy, the library abstracts the JSON responses from the API inside three objects:
 
-- `Server` -> Contains the OpenVPN configuration as described in [OpenBlu's Documentation](https://docs.intellivoid.info/openblu/v1/get_server)
-- `ServerListing` -> Contains extra info from a server such as ping, IP address and location
+- `Server` -> Contains more detailed information from the server as described in [OpenBlu's Documentation](https://docs.intellivoid.net/openblu/v1/get_server)
+- `ServerListing` -> Contains metadata from a server such as ping, country and location
+- `OpenVPN` -> Contained inside a `Server` object, stores the OpenVPN configuratiom for the server
+
 
 The `ServerListing` object can be printed to get an overview of the server's metadata.
 
@@ -86,6 +88,8 @@ Fetches a single OpenVPN server from the OpenBlu API, given its unique ID
 :rtype: class: Server
 :raises OpenBluError: An proper subclass of OpenBluError is raised if something goes wrong. If the error cannot be determined, a generic OpenBluError is raised
 ```
+
+For more examples and a deeper description check the `examples.py` file in this repo
 
 ### Exceptions
 
