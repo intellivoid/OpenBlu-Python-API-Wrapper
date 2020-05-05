@@ -71,7 +71,7 @@ servers = servers.list_servers(filter_by=("germany", "country"))
 
 server = servers[0]    # Take the first entry
 
-ovpn = api.get_server(server.id)   # Retrieve the server's configuration
+srv = api.get_server(server.id)   # Retrieve the server's configuration
 ```
 
 Below the full documentation for the `get_server` method in Sphinx format
