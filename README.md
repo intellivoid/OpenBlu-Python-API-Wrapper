@@ -14,7 +14,7 @@ To make things easy, the library abstracts the JSON responses from the API insid
 - `OpenVPN` -> Contained inside a `Server` object, stores the OpenVPN configuratiom for the server
 
 
-The `ServerListing` object can be printed to get an overview of the server's metadata.
+The `ServerListing` and `Server` objects can be printed to get an overview of the server's information.
 
 
 ## Installation
