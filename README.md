@@ -56,10 +56,10 @@ Fetches OpenVPN servers from the OpenBlu API
 ```
 
 
-### Get a single server (OpenVPN config)
+### Get a single server
 
 As described in OpenBlu's documentation, servers can be identified by a unique ID. That ID can be used to fetch a more detailed server object containing the OpenVPN server configuration from the OpenBlu API as shown below.
-
+This server object also contains the server's IP address
 
 ```python
 
