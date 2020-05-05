@@ -30,7 +30,7 @@ class OpenBluAPI:
            Follows the convention that eval(repr(self)) == self
         """
 
-        return f"OpenBluAPI('{self.key}')"
+        return f"OpenBluAPI('{self.access_key}')"
 
 
     def __str__(self):
@@ -69,7 +69,7 @@ class OpenBluAPI:
         response = requests.post(link, data=post_data)
         data = json.loads(response.text)
         if data["response_code"] == 200:
-            return Server(data["server"]["openvpn"])
+            return Server(data["server"])
         else:
             self._raise_exception(data["response_code"], data["error"]["message"])
 

@@ -15,7 +15,10 @@ class ServerListing(object):
     def __getitem__(self, item):
         """Implements self['item']"""
 
-        return self._data.__getitem__(item)
+        value = self._data.get(item, None)
+        if not value:
+            raise AttributeError(f"object of type '{type(self).__name__}' has no attribute '{item}'")
+        return value
 
     def __getattr__(self, attr):
         """Implements self.attr"""
@@ -33,13 +36,31 @@ class ServerListing(object):
         return f"ServerListing({show})"
 
 
+class OpenVPN(ServerListing):
+
+    def __init__(self, data):
+        super().__init__(data)
+
+    def __repr__(self):
+        return f"<OpenVPN object at {hex(id(self))}>"
+
+
 class Server(ServerListing):
+
+
     def __init__(self, data):
         """Object constructor"""
 
         super().__init__(data)
+        self._data["openvpn"] = OpenVPN(self._data["openvpn"])
 
     def __repr__(self):
         """Implement repr(self)"""
 
-        return f"<Server object at {hex(id(self))}>"
+        show = "\n"
+        for index, (key, value) in enumerate(self._data.items()):
+            show += f"{key}={value}"
+            if index < len(self._data) - 1:
+                show += ", \n"
+        return f"Server({show})"
+
