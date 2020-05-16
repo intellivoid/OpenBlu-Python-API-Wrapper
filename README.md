@@ -14,7 +14,7 @@ To make things easy, the library abstracts the JSON responses from the API insid
 - `OpenVPN` -> Contained inside a `Server` object, stores the OpenVPN configuratiom for the server
 
 
-The `ServerListing` object can be printed to get an overview of the server's metadata.
+The `ServerListing` and `Server` objects can be printed to get an overview of the server's information.
 
 
 ## Installation
@@ -56,10 +56,10 @@ Fetches OpenVPN servers from the OpenBlu API
 ```
 
 
-### Get a single server (OpenVPN config)
+### Get a single server
 
-As described in OpenBlu's documentation, servers can be identified by a unique ID. That ID can be used to fetch the OpenVPN server configuration from the OpenBlu API as shown below
-
+As described in OpenBlu's documentation, servers can be identified by a unique ID. That ID can be used to fetch a more detailed server object containing the OpenVPN server configuration from the OpenBlu API as shown below.
+This server object also contains the server's IP address
 
 ```python
 
@@ -71,7 +71,7 @@ servers = api.list_servers(filter_by=("germany", "country"))
 
 server = servers[0]    # Take the first entry
 
-server_obj = api.get_server(server.id)   # Retrieve the server's detailed info
+srv = api.get_server(server.id)   # Retrieve the server's configuration
 ```
 
 Below the full documentation for the `get_server` method in Sphinx format
