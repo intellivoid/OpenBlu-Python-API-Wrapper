@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 
 setup(
-    name="OpenBlu-Python-Wrapper",
+    name="openblu",
     version="1.0",
     author="Intellivoid Technologies",
     author_email="nocturn9x@intellivoid.net",
