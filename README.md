@@ -22,7 +22,7 @@ The `ServerListing` and `Server` objects can be printed to get an overview of th
 You can obtain this package via PyPi
 
 ```sh
-pip install coffeehouse
+pip install openblu
 ```
 
 
