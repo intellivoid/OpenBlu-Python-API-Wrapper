@@ -18,7 +18,7 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
-        "License :: OSI Approved :: Apache License 2.0"
+        "License :: OSI Approved :: Apache Software License"
     ],
     python_requires='>=3.6',
 )
