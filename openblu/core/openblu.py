@@ -36,7 +36,7 @@ class OpenBluAPI:
     def __str__(self):
         """Implements str(self)"""
 
-        return f"<openblu.OpenBluAPI object at {hex(id(self))}, key='{self.key}'"
+        return f"<openblu.OpenBluAPI object at {hex(id(self))}, key='{self.key}'>"
 
     def _raise_exception(self, code: int, message: str):
         """Raises the appropriate exception based on the status code
