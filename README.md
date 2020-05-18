@@ -19,6 +19,14 @@ The `ServerListing` and `Server` objects can be printed to get an overview of th
 
 ## Installation
 
+You can obtain this package via PyPi
+
+```sh
+pip install openblu
+```
+
+## Manual Installation
+
 To install this wrapper, simply clone this repo with `git clone`, then run `python3 setup.py install`
 
 
